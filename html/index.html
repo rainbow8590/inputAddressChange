@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .wrap{
+      width: 100%;
+      height: 100%;
+      background: #ccc;
+    }
+
+    .inpwrap{
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      overflow-y: scroll; 
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -50%;
+      margin-top: -200;
+    }
+    .inputs{
+     position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -150px;
+      margin-left: -150px;
+      width: 300px;
+      height:300px;
+      background: #aaa;
+
+    }
+    .inputs .inp{
+      width: 80%;
+      height: 20px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="wrap">点击出现input</div>
+    <div class="inputs">
+      <input type="text" class="inp" ids="1" placeholder="1">
+      <input type="text" class="inp" ids="2" placeholder="2">
+      <input type="text" class="inp" ids="3" placeholder="3">
+      <input type="text" class="inp" ids="4" placeholder="4">
+      <input type="text" class="inp" ids="5" placeholder="5">
+      <input type="text" class="inp" ids="6" placeholder="6">
+      <input type="text" class="inp" ids="7" placeholder="7">
+    </div>
+  <script src="../js/jquery.2.1.4.js"></script>
+  <script src="../js/jquery.inputs2.js"></script>
+  <script type="text/javascript">
+  $('.inputs').inputs();
+/*
+  // 判断系统是ios还是android
+  var u = navigator.userAgent;
+  var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+  var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+  
+  if(isAndroid == true){
+    andriodM()
+  }
+
+  function andriodM(){
+
+     //一个input的高度
+    var inpHeight = $('.inp').eq(0).outerHeight(true);
+    // input父级的高度
+    var inpFatherHeight = $('.inputs').height();
+    // 加载后窗口的高度
+    var windowHeight = $(window).height();
+
+    // 显示input元素
+    $('.wrap').on('click',function(){
+      if(windowHeight <= inpFatherHeight){
+        $('.inputs').css({top:0,'marginTop': 0})
+      }else{
+        $('.inputs').css({ top:'50%','marginTop': -250})
+      }
+      $('.inputs').css({'display': 'block'})
+    })
+
+   
+    // 初始值
+    var oldId = 0;
+
+    $('.inp').on('focus',function(){
+      var fatherTop = parseInt($('.inputs').css('marginTop'));
+      var newId = $(this).attr('ids');
+      var thisTop = $(this).offset().top;
+
+      if(newId == oldId){
+        return;
+      }else{
+        // 改变最外侧的margin-top值
+        $('.inputs').animate({
+          'marginTop':fatherTop - (newId - oldId) * inpHeight
+        },function(){
+          oldId = newId;
+        })
+      }
+    })
+
+    // 改变窗口的大小
+    $(window).on('resize',function(){
+       var windowHeight = $(window).height();
+       if(windowHeight <= inpFatherHeight){
+        $('.inputs').animate({'top': 20,'marginTop': 0},500)
+       }
+    })
+
+  }*/
+  </script>
+</body>
+</html>
